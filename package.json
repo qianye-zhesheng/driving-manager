@@ -11,9 +11,11 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "copy:aws-config-dev": "[ ! -f src/config/aws-config.dev.ts ] && cp src/config/aws-config.sample.ts src/config/aws-config.dev.ts || echo 'aws-config.dev.ts already exists.'"
   },
   "dependencies": {
+    "@aws-amplify/ui-vue": "^4.3.1",
     "aws-amplify": "^6.14.2",
     "pinia": "^3.0.1",
     "vue": "^3.5.13",

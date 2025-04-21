@@ -28,3 +28,8 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Secrets
+*.env
+src/config/*
+!src/config/*.sample.ts
