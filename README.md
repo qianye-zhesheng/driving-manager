@@ -20,6 +20,10 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
+```sh
+npm copy:aws-config-dev
+```
+
 ### Compile and Hot-Reload for Development
 
 ```sh
