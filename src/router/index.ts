@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { useUserStore } from '@/stores/user'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -25,6 +26,18 @@ const routes: RouteRecordRaw[] = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: routes,
+})
+
+router.beforeEach(async (to, from, next) => {
+  const userStore = useUserStore()
+  if (to.name === 'login') {
+    return next()
+  }
+  if (await userStore.isAuthenticated()) {
+    return next()
+  } else {
+    return next({ name: 'login' })
+  }
 })
 
 export default router
