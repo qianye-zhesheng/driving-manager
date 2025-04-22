@@ -1,5 +1,4 @@
-import type { ResourcesConfig } from 'aws-amplify' // Adjust the import path as needed
-// Adjust the import path as needed
+import type { ResourcesConfig } from 'aws-amplify'
 
 const awsConfig: ResourcesConfig = {
   Auth: {
@@ -9,6 +8,13 @@ const awsConfig: ResourcesConfig = {
       identityPoolId: 'your_identity_pool_id',
       loginWith: {
         email: true,
+        oauth: {
+          domain: 'your_cognito_domain',
+          scopes: ['email', 'openid', 'phone'],
+          redirectSignIn: ['http://localhost:5173/'],
+          redirectSignOut: ['http://localhost:5173/'],
+          responseType: 'code',
+        },
       },
       signUpVerificationMethod: 'code',
       userAttributes: {
