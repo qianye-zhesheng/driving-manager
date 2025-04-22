@@ -15,6 +15,9 @@ const awsConfig: ResourcesConfig = {
         email: {
           required: true,
         },
+        nickname: {
+          required: true,
+        },
       },
       allowGuestAccess: true,
       passwordFormat: {
