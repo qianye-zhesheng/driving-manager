@@ -1,10 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeaderBar from '@/components/HeaderBar.vue'
+</script>
 
 <template>
-  <header>
-    <h1>Driving Manager</h1>
-  </header>
-  <main>
+  <HeaderBar />
+  <main class="container">
     <RouterView />
   </main>
 </template>

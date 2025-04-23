@@ -1,18 +1,28 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
+import { useUserStore } from '@/stores/user'
 import { signInWithRedirect } from 'aws-amplify/auth'
-import { signOut } from 'aws-amplify/auth'
+
+const userStore = useUserStore()
+const isAuthenticated = ref(false)
+
+onMounted(async () => {
+  isAuthenticated.value = await userStore.isAuthenticated()
+})
+
 async function signIn() {
   await signInWithRedirect()
 }
-
-async function onSignOut() {
-  await signOut()
-}
 </script>
 <template>
-  <section>
-    <h1>login</h1>
-    <button @click="signIn">Sign In</button>
-    <button @click="onSignOut">Sign Out</button>
-  </section>
+  <template v-if="isAuthenticated">
+    <p class="mt-3">
+      すでにログインされています。<RouterLink :to="{ name: 'home' }">ホームに戻る</RouterLink>
+    </p>
+  </template>
+  <template v-else>
+    <h1 class="my-3">ログイン</h1>
+    <BButton variant="outline-primary" @click="signIn">AWS Cognitoでログイン</BButton>
+  </template>
 </template>
