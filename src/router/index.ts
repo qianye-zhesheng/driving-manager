@@ -13,6 +13,18 @@ const routes: RouteRecordRaw[] = [
     name: 'login',
     component: () => import('@/views/LoginView.vue'),
   },
+
+  {
+    path: '/check',
+    name: 'check',
+    component: () => import('@/views/CheckView.vue'),
+  },
+
+  {
+    path: '/check/imsafe',
+    name: 'check.imsafe',
+    component: () => import('@/views/check/ImSafeView.vue'),
+  },
 ]
 
 const router = createRouter({

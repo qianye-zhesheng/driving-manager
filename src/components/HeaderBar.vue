@@ -18,7 +18,11 @@ async function onSignOut() {
   <header
     class="container-fluid d-flex justify-content-between align-items-center py-3 bg-primary bg-gradient text-white"
   >
-    <h1>Driving Manager</h1>
+    <h1>
+      <RouterLink class="text-light text-decoration-none" :to="{ name: 'home' }"
+        >Driving Manager</RouterLink
+      >
+    </h1>
     <BButton variant="light" v-if="isAuthenticated" @click="onSignOut">ログアウト</BButton>
   </header>
 </template>

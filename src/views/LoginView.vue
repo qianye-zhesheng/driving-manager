@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { signInWithRedirect } from 'aws-amplify/auth'
+import PageTitle from '@/components/PageTitle.vue'
 
 const userStore = useUserStore()
 const isAuthenticated = ref(false)
@@ -22,7 +23,7 @@ async function signIn() {
     </p>
   </template>
   <template v-else>
-    <h1 class="my-3">ログイン</h1>
+    <PageTitle title="ログイン" />
     <BButton variant="outline-primary" @click="signIn">AWS Cognitoでログイン</BButton>
   </template>
 </template>
