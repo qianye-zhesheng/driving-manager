@@ -25,6 +25,18 @@ const routes: RouteRecordRaw[] = [
     name: 'check.imsafe',
     component: () => import('@/views/check/ImSafeView.vue'),
   },
+
+  {
+    path: '/check/weather',
+    name: 'check.weather',
+    component: () => import('@/views/check/WeatherView.vue'),
+  },
+
+  {
+    path: '/check/judge',
+    name: 'check.judge',
+    component: () => import('@/views/check/JudgeView.vue'),
+  },
 ]
 
 const router = createRouter({

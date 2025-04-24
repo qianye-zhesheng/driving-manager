@@ -112,3 +112,12 @@ export const emotionQuestion: Question = {
     },
   ],
 }
+
+export const imSafeQuestions: { [key: string]: Question } = {
+  illness: illnessQuestion,
+  medication: medicationQuestion,
+  stress: stressQuestion,
+  alcohol: alcoholQuestion,
+  fatigue: fatigueQuestion,
+  emotion: emotionQuestion,
+}

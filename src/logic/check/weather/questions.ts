@@ -74,3 +74,10 @@ export const snowQuestion: Question = {
     },
   ],
 }
+
+export const weatherQuestions: { [key: string]: Question } = {
+  wetRoad: wetRoadQuestion,
+  visibility: visibilityQuestion,
+  icyRoad: icyRoadQuestion,
+  snow: snowQuestion,
+}
