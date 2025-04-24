@@ -21,7 +21,7 @@ npm install
 ```
 
 ```sh
-npm copy:aws-config-dev
+npm run copy-env
 ```
 
 ### Compile and Hot-Reload for Development

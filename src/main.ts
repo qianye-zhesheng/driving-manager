@@ -6,7 +6,7 @@ import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 import App from './App.vue'
 import router from './router'
 import { Amplify } from 'aws-amplify'
-import awsConfig from '@/config/aws-config.dev'
+import awsConfig from '@/config/aws-config'
 
 Amplify.configure(awsConfig)
 

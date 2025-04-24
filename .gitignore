@@ -30,6 +30,5 @@ coverage
 *.tsbuildinfo
 
 # Secrets
-*.env
-src/config/*
-!src/config/*.sample.ts
+.env*
+!.env.sample

@@ -12,7 +12,9 @@
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "copy:aws-config-dev": "[ ! -f src/config/aws-config.dev.ts ] && cp src/config/aws-config.sample.ts src/config/aws-config.dev.ts || echo 'aws-config.dev.ts already exists.'"
+    "copy-env:development": "[ ! -f .env.development ] && cp .env.sample .env.development || echo '.env.development already exists.'",
+    "copy-env:production": "[ ! -f .env.production ] && cp .env.sample .env.production || echo '.env.production already exists.'",
+    "copy-env": "run-s copy-env:development copy-env:production"
   },
   "dependencies": {
     "aws-amplify": "^6.14.2",
