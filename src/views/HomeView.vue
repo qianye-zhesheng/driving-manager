@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
         >運行前チェック</RouterLink
       ></BListGroupItem
     >
-    <BListGroupItem>運行開始</BListGroupItem>
-    <BListGroupItem>運行終了</BListGroupItem>
+    <BListGroupItem><span class="btn btn-outline-primary disabled">運行開始</span></BListGroupItem>
+    <BListGroupItem><span class="btn btn-outline-primary disabled">運行終了</span></BListGroupItem>
   </BListGroup>
 </template>
