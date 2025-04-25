@@ -4,7 +4,7 @@ import HeaderBar from '@/components/HeaderBar.vue'
 
 <template>
   <HeaderBar />
-  <main class="container">
+  <main class="container mb-5">
     <RouterView />
   </main>
 </template>
