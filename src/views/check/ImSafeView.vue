@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PageTitle from '@/components/PageTitle.vue'
 import { imSafeQuestions } from '@/logic/check/im-safe/questions'
 import { useCheckAnswersStore } from '@/stores/check-answers'
 import { computed } from 'vue'

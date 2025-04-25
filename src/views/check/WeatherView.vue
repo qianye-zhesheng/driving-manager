@@ -4,6 +4,7 @@ import { useCheckAnswersStore } from '@/stores/check-answers'
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useRouter } from 'vue-router'
+import PageTitle from '@/components/PageTitle.vue'
 
 const checkAnswersStore = useCheckAnswersStore()
 

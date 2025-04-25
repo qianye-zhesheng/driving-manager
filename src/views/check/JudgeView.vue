@@ -2,8 +2,12 @@
 import { PreDrivingChecker } from '@/logic/check/pre-driving-checker'
 import { useCheckAnswersStore } from '@/stores/check-answers'
 import { computed } from 'vue'
+import PageTitle from '@/components/PageTitle.vue'
+import { useRouter } from 'vue-router'
 
 const checkAnswersStore = useCheckAnswersStore()
+
+const router = useRouter()
 
 const imSafeAnswer = computed(() => {
   return checkAnswersStore.imSafeAnswer
@@ -16,6 +20,12 @@ const weatherAnswer = computed(() => {
 const result = computed(() => {
   return new PreDrivingChecker(imSafeAnswer.value, weatherAnswer.value).executeCheck()
 })
+
+const onSubmit = (): void => {
+  // TODO : Implement the logic to send the result to the server
+  checkAnswersStore.resetAnswers()
+  router.replace({ name: 'check.complete' })
+}
 </script>
 <template>
   <PageTitle title="運行前チェック" />
@@ -25,4 +35,5 @@ const result = computed(() => {
       {{ result }}
     </BCardText>
   </BCard>
+  <BButton variant="primary" @click="onSubmit">結果を送信</BButton>
 </template>

@@ -39,6 +39,12 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/check/complete',
+    name: 'check.complete',
+    component: () => import('@/views/check/CompleteView.vue'),
+  },
+
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue'),
