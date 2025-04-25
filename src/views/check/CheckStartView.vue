@@ -8,7 +8,7 @@ const router = useRouter()
 const checkAnswersStore = useCheckAnswersStore()
 const initialize = (): void => {
   checkAnswersStore.resetAnswers()
-  router.push({ name: 'check.imsafe' })
+  router.push({ name: 'check.im-safe' })
 }
 </script>
 <template>

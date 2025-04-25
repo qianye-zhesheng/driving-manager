@@ -39,7 +39,7 @@ const onSubmit = (): void => {
         >
       </BFormGroup>
     </template>
-    <RouterLink class="btn btn-outline-primary me-3" :to="{ name: 'check.imsafe' }"
+    <RouterLink class="btn btn-outline-primary me-3" :to="{ name: 'check.im-safe' }"
       >戻る</RouterLink
     >
     <BButton type="submit" variant="primary">判定</BButton>

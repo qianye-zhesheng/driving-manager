@@ -15,14 +15,14 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
-    path: '/check',
-    name: 'check',
-    component: () => import('@/views/CheckView.vue'),
+    path: '/check/check-start',
+    name: 'check.check-start',
+    component: () => import('@/views/check/CheckStartView.vue'),
   },
 
   {
-    path: '/check/imsafe',
-    name: 'check.imsafe',
+    path: '/check/im-safe',
+    name: 'check.im-safe',
     component: () => import('@/views/check/ImSafeView.vue'),
   },
 

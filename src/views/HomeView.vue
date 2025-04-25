@@ -5,7 +5,7 @@ import { RouterLink } from 'vue-router'
 <template>
   <BListGroup class="container mt-3">
     <BListGroupItem
-      ><RouterLink class="btn btn-outline-primary" :to="{ name: 'check' }"
+      ><RouterLink class="btn btn-outline-primary" :to="{ name: 'check.check-start' }"
         >運行前チェック</RouterLink
       ></BListGroupItem
     >
