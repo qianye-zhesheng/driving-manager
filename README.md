@@ -42,6 +42,12 @@ npm run build
 npm run test:unit
 ```
 
+### Run Stand-alone Unit Tests
+
+```sh
+npx vitest run
+```
+
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
