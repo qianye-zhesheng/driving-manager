@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { PreDrivingChecker } from '@/logic/check/pre-driving-checker'
 import { useCheckAnswersStore } from '@/stores/check-answers'
-import { computed } from 'vue'
 import PageTitle from '@/components/PageTitle.vue'
 import { useRouter } from 'vue-router'
 
@@ -9,17 +8,10 @@ const checkAnswersStore = useCheckAnswersStore()
 
 const router = useRouter()
 
-const imSafeAnswer = computed(() => {
-  return checkAnswersStore.imSafeAnswer
-})
+const imSafeAnswer = checkAnswersStore.imSafeAnswer
+const weatherAnswer = checkAnswersStore.weatherAnswer
 
-const weatherAnswer = computed(() => {
-  return checkAnswersStore.weatherAnswer
-})
-
-const result = computed(() => {
-  return new PreDrivingChecker(imSafeAnswer.value, weatherAnswer.value).executeCheck()
-})
+const result: string = new PreDrivingChecker(imSafeAnswer, weatherAnswer).executeCheck()
 
 const onSubmit = (): void => {
   // TODO : Implement the logic to send the result to the server
