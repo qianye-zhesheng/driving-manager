@@ -17,7 +17,7 @@
     "copy-env": "run-s copy-env:development copy-env:production"
   },
   "dependencies": {
-    "aws-amplify": "^6.14.2",
+    "aws-amplify": "^6.14.4",
     "bootstrap": "^5.3.5",
     "bootstrap-vue-next": "^0.28.6",
     "pinia": "^3.0.1",
