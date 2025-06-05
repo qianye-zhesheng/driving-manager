@@ -11,6 +11,7 @@ onMounted(async () => {
 })
 
 async function onSignOut() {
+  userStore.clearUser()
   await signOut()
 }
 </script>
