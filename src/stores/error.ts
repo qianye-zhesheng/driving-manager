@@ -2,16 +2,16 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useErrorStore = defineStore('error', () => {
-  const errorMessage = ref('')
+  const errorMessages = ref([] as string[])
 
-  function setError(message: string): void {
-    errorMessage.value = message
+  function addError(message: string): void {
+    errorMessages.value.push(message)
   }
-  function clearError(): void {
-    errorMessage.value = ''
+  function clearErrors(): void {
+    errorMessages.value = [] as string[]
   }
-  function hasError(): boolean {
-    return errorMessage.value !== ''
+  function hasErrors(): boolean {
+    return errorMessages.value.length > 0
   }
-  return { errorMessage, setError, clearError, hasError }
+  return { errorMessages, addError, clearErrors, hasErrors }
 })

@@ -23,7 +23,7 @@ app.config.errorHandler = (err, instance, info) => {
   console.error('Info:', info)
 
   const errorStore = useErrorStore()
-  errorStore.setError('アプリケーションエラーが発生しました。ホーム画面から再度お試しください。')
+  errorStore.addError('アプリケーションエラーが発生しました。ホーム画面から再度お試しください。')
 }
 
 app.mount('#app')

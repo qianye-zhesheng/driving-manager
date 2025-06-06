@@ -29,9 +29,8 @@ export const useUserStore = defineStore('user', () => {
       const user = await getCurrentUser()
       userId.value = user?.userId
     } catch (error) {
-      console.error('Error fetching user ID:', error)
-      errorStore.setError('ユーザー情報の取得に失敗しました。再度ログインしてください。')
-      userId.value = ''
+      errorStore.addError('ユーザー情報の取得に失敗しました。再度ログインしてください。')
+      throw error
     }
     return userId.value
   }
@@ -46,9 +45,8 @@ export const useUserStore = defineStore('user', () => {
       const authSession: AuthSession = await fetchAuthSession()
       idToken.value = AuthSessionIdToken.of(authSession).get()
     } catch (error) {
-      console.error('Error fetching ID token:', error)
-      errorStore.setError('認証情報の取得に失敗しました。再度ログインしてください。')
-      idToken.value = ''
+      errorStore.addError('認証情報の取得に失敗しました。再度ログインしてください。')
+      throw error
     }
     return idToken.value
   }
