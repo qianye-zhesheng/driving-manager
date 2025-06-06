@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { reactive } from 'vue'
 import type { ImSafeAnswer, WeatherAnswer } from '@/stores/models/check-answer'
+import { PostAnswerApi } from '@/logic/check/post-answer-api'
 
 export const useCheckAnswersStore = defineStore('checkAnswers', () => {
   const initialImSafeAnswer: ImSafeAnswer = {
@@ -35,5 +36,10 @@ export const useCheckAnswersStore = defineStore('checkAnswers', () => {
     weatherAnswer.snow = 0
   }
 
-  return { imSafeAnswer, weatherAnswer, resetAnswers }
+  async function saveAnswers(judgement: string): Promise<void> {
+    const postAnswerApi = new PostAnswerApi(imSafeAnswer, weatherAnswer, judgement)
+    await postAnswerApi.post()
+  }
+
+  return { imSafeAnswer, weatherAnswer, resetAnswers, saveAnswers }
 })

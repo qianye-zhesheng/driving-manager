@@ -13,8 +13,8 @@ const weatherAnswer = checkAnswersStore.weatherAnswer
 
 const result: string = new PreDrivingChecker(imSafeAnswer, weatherAnswer).executeCheck()
 
-const onSubmit = (): void => {
-  // TODO : Implement the logic to send the result to the server
+const onSubmit = async (): Promise<void> => {
+  await checkAnswersStore.saveAnswers(result)
   checkAnswersStore.resetAnswers()
   router.replace({ name: 'check.complete' })
 }
