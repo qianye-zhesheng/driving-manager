@@ -45,6 +45,18 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/session/input-start',
+    name: 'session.input-start',
+    component: () => import('@/views/session/InputStartView.vue'),
+  },
+
+  {
+    path: '/session/start-complete',
+    name: 'session.start-complete',
+    component: () => import('@/views/session/StartCompleteView.vue'),
+  },
+
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue'),
