@@ -57,6 +57,12 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/__tools__/backend-api-test',
+    name: 'tools.backend-api-test',
+    component: () => import('@/views/__tools__/BackendApiTestView.vue'),
+  },
+
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue'),

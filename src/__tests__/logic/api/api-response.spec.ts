@@ -105,6 +105,11 @@ describe('ApiResponseのテスト', () => {
       `API error: status code 404 body: ${JSON.stringify({ message: 'Not Found' })}`,
     )
   })
+
+  test('getStatusCodeがステータスコードを返すこと', () => {
+    const response = new ApiResponse(201, true, mockSuccessfulBody)
+    expect(response.getStatusCode()).toBe(201)
+  })
 })
 
 interface MockData {

@@ -11,6 +11,10 @@ export class ApiResponse {
     return this.successful
   }
 
+  public getStatusCode(): number {
+    return this.statusCode
+  }
+
   public getBody(): unknown {
     return this.body
   }
