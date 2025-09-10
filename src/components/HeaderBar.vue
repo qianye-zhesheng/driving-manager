@@ -2,9 +2,12 @@
 import { ref, onMounted } from 'vue'
 import { useUserStore } from '@/stores/user'
 import { signOut } from 'aws-amplify/auth'
+import { DeployMode } from '@/config/deploy-mode'
 
 const userStore = useUserStore()
 const isAuthenticated = ref(false)
+
+const isDevelopmentMode: boolean = DeployMode.isDevelopment()
 
 onMounted(async () => {
   isAuthenticated.value = await userStore.isAuthenticated()
@@ -23,6 +26,7 @@ async function onSignOut() {
       <RouterLink class="text-light text-decoration-none" :to="{ name: 'home' }"
         >Driving Manager</RouterLink
       >
+      <span v-if="isDevelopmentMode" class="bg-warning text-dark ms-5 px-3 fs-2">Development</span>
     </h1>
     <BButton variant="light" v-if="isAuthenticated" @click="onSignOut">ログアウト</BButton>
   </header>
