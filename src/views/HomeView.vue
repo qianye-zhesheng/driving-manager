@@ -14,6 +14,10 @@ import { RouterLink } from 'vue-router'
         >運行開始</RouterLink
       >
     </BListGroupItem>
-    <BListGroupItem><span class="btn btn-outline-primary disabled">運行終了</span></BListGroupItem>
+    <BListGroupItem
+      ><RouterLink class="btn btn-outline-primary" :to="{ name: 'session.input-end' }"
+        >運行終了</RouterLink
+      ></BListGroupItem
+    >
   </BListGroup>
 </template>

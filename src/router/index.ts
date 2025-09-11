@@ -57,6 +57,18 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/session/input-end',
+    name: 'session.input-end',
+    component: () => import('@/views/session/InputEndView.vue'),
+  },
+
+  {
+    path: '/session/end-complete',
+    name: 'session.end-complete',
+    component: () => import('@/views/session/EndCompleteView.vue'),
+  },
+
+  {
     path: '/__tools__/backend-api-test',
     name: 'tools.backend-api-test',
     component: () => import('@/views/__tools__/BackendApiTestView.vue'),
