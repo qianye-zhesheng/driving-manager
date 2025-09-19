@@ -2,7 +2,6 @@ import type { ImSafeAnswer, WeatherAnswer } from '@/stores/models/check-answer'
 import { PostApi } from '@/logic/api/post-api'
 import { ApiResponse } from '@/logic/api/api-response'
 import { useUserStore } from '@/stores/user'
-import { useLoadingStore } from '@/stores/loading'
 
 export class PostAnswerApi {
   private static readonly PATH: string = 'check/post-answer'
@@ -25,16 +24,8 @@ export class PostAnswerApi {
 
     const api: PostApi = PostApi.configure().setPath(PostAnswerApi.PATH).setBody(JSONBody).build()
 
-    const loadingStore = useLoadingStore()
+    const response: ApiResponse = await api.send()
 
-    try {
-      loadingStore.startLoading()
-      const response: ApiResponse = await api.send()
-      response.ensureSuccess()
-    } catch (error) {
-      throw error
-    } finally {
-      loadingStore.finishLoading()
-    }
+    response.ensureSuccess()
   }
 }

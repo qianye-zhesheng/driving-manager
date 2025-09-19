@@ -3,6 +3,7 @@ import { PreDrivingChecker } from '@/logic/check/pre-driving-checker'
 import { useCheckAnswersStore } from '@/stores/check-answers'
 import PageTitle from '@/components/PageTitle.vue'
 import { useRouter } from 'vue-router'
+import SmartSubmitForm from '@/components/form/smart-submit-form.vue'
 
 const checkAnswersStore = useCheckAnswersStore()
 
@@ -27,5 +28,7 @@ const onSubmit = async (): Promise<void> => {
       {{ result }}
     </BCardText>
   </BCard>
-  <BButton variant="primary" @click="onSubmit">結果を送信</BButton>
+  <SmartSubmitForm :onSubmit="onSubmit" v-slot="{ submitting }">
+    <BButton type="submit" variant="primary" :disabled="submitting">結果を送信</BButton>
+  </SmartSubmitForm>
 </template>
