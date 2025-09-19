@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SmartSubmitForm from '@/components/form/smart-submit-form.vue'
 import { DateOption, type InputForm, dateOptions, isDateRequired } from '@/logic/session/input-form'
 import { PutStartApi } from '@/logic/session/put-start-api'
 import { computed, reactive } from 'vue'
@@ -24,7 +25,7 @@ const onSubmit = async (): Promise<void> => {
 
 <template>
   <PageTitle title="運行開始" />
-  <BForm @submit.prevent="onSubmit">
+  <SmartSubmitForm :onSubmit="onSubmit" v-slot="{ submitting }">
     <BFormRadioGroup
       v-model="form.dateOption"
       :options="dateOptions"
@@ -51,6 +52,6 @@ const onSubmit = async (): Promise<void> => {
         required
       />
     </BFormGroup>
-    <BButton type="submit" variant="primary">送信</BButton>
-  </BForm>
+    <BButton type="submit" variant="primary" :disabled="submitting">送信</BButton>
+  </SmartSubmitForm>
 </template>
