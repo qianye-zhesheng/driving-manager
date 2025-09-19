@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import SmartSubmitForm from '@/components/form/smart-submit-form.vue'
 import PageTitle from '@/components/PageTitle.vue'
 import { DeployMode } from '@/config/deploy-mode'
 import { PostApi } from '@/logic/api/post-api'
 import { PutApi } from '@/logic/api/put-api'
-import { useLoadingStore } from '@/stores/loading'
 import { reactive } from 'vue'
 const isDevelopment = DeployMode.isDevelopment()
 
@@ -31,13 +31,9 @@ const result = reactive<Result>({
 
 const methods = ['POST', 'PUT']
 
-const loadingStore = useLoadingStore()
-
 const onSubmit = async (): Promise<void> => {
   result.status = 0
   result.body = ''
-
-  loadingStore.startLoading()
 
   if (form.method === 'POST') {
     try {
@@ -50,8 +46,6 @@ const onSubmit = async (): Promise<void> => {
       result.status = response.getStatusCode()
     } catch (error) {
       result.body = (error as Error).message
-    } finally {
-      loadingStore.finishLoading()
     }
     return
   }
@@ -67,8 +61,6 @@ const onSubmit = async (): Promise<void> => {
       result.status = response.getStatusCode()
     } catch (error) {
       result.body = (error as Error).message
-    } finally {
-      loadingStore.finishLoading()
     }
     return
   }
@@ -78,7 +70,7 @@ const onSubmit = async (): Promise<void> => {
   <PageTitle title="バックエンドAPIテスト" />
   <div v-if="isDevelopment">
     <p class="mb-2">この画面は開発環境でのみ表示されます。</p>
-    <BForm @submit.prevent="onSubmit">
+    <SmartSubmitForm :onSubmit="onSubmit" v-slot="{ submitting }">
       <BFormGroup label="HTTPメソッド" class="mb-4">
         <BFormSelect v-model="form.method" :options="methods" name="method" class="ms-3" required />
       </BFormGroup>
@@ -101,8 +93,8 @@ const onSubmit = async (): Promise<void> => {
           required
         ></BFormTextarea>
       </BFormGroup>
-      <BButton type="submit" variant="primary" class="mb-4">送信</BButton>
-    </BForm>
+      <BButton type="submit" variant="primary" class="mb-4" :disabled="submitting">送信</BButton>
+    </SmartSubmitForm>
     <p class="mb3">status: {{ result.status }}</p>
     <pre>body: {{ result.body }}</pre>
   </div>

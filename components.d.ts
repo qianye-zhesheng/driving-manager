@@ -32,5 +32,6 @@ declare module 'vue' {
     PageTitle: typeof import('./src/components/PageTitle.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SmartSubmitForm: typeof import('./src/components/form/smart-submit-form.vue')['default']
   }
 }
