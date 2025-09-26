@@ -19,5 +19,10 @@ import { RouterLink } from 'vue-router'
         >運行終了</RouterLink
       ></BListGroupItem
     >
+    <BListGroupItem
+      ><RouterLink class="btn btn-outline-primary" :to="{ name: 'policy.index' }"
+        >規程集</RouterLink
+      ></BListGroupItem
+    >
   </BListGroup>
 </template>

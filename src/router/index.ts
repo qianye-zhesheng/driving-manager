@@ -69,6 +69,18 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/policy/index',
+    name: 'policy.index',
+    component: () => import('@/views/policy/IndexView.vue'),
+  },
+
+  {
+    path: '/policy/daily-inspection',
+    name: 'policy.daily-inspection',
+    component: () => import('@/views/policy/DailyInspectionView.vue'),
+  },
+
+  {
     path: '/__tools__/backend-api-test',
     name: 'tools.backend-api-test',
     component: () => import('@/views/__tools__/BackendApiTestView.vue'),
