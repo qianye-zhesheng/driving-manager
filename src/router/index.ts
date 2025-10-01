@@ -99,6 +99,12 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/policy/standard-call-out',
+    name: 'policy.standard-call-out',
+    component: () => import('@/views/policy/StandardCallOutView.vue'),
+  },
+
+  {
     path: '/__tools__/backend-api-test',
     name: 'tools.backend-api-test',
     component: () => import('@/views/__tools__/BackendApiTestView.vue'),
