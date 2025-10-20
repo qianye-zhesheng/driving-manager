@@ -20,5 +20,13 @@ import PageTitle from '@/components/PageTitle.vue'
       >
     </BListGroup>
   </section>
+  <section>
+    <h2 class="mb-3">訓練規程</h2>
+    <BListGroup class="mb-3">
+      <BListGroupItem :to="{ name: 'policy.monthly-training' }">月次定期訓練</BListGroupItem>
+      <BListGroupItem :to="{ name: 'policy.return-training' }">復帰訓練</BListGroupItem>
+      <BListGroupItem :to="{ name: 'policy.rescue-training' }">救命訓練</BListGroupItem>
+    </BListGroup>
+  </section>
   <p><RouterLink class="btn btn-primary" :to="{ name: 'home' }">ホームへ戻る</RouterLink></p>
 </template>

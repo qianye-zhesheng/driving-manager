@@ -105,6 +105,24 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/policy/monthly-training',
+    name: 'policy.monthly-training',
+    component: () => import('@/views/policy/MonthlyTrainingView.vue'),
+  },
+
+  {
+    path: '/policy/return-training',
+    name: 'policy.return-training',
+    component: () => import('@/views/policy/ReturnTrainingView.vue'),
+  },
+
+  {
+    path: '/policy/rescue-training',
+    name: 'policy.rescue-training',
+    component: () => import('@/views/policy/RescueTrainingView.vue'),
+  },
+
+  {
     path: '/__tools__/backend-api-test',
     name: 'tools.backend-api-test',
     component: () => import('@/views/__tools__/BackendApiTestView.vue'),
