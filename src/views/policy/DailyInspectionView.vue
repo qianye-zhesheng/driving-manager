@@ -15,6 +15,7 @@ import { RouterLink } from 'vue-router'
       <BListGroupItem>前側の指示器</BListGroupItem>
       <BListGroupItem>フロントライト点灯・切り替え</BListGroupItem>
       <BListGroupItem>クラクション</BListGroupItem>
+      <BListGroupItem>後側の指示器</BListGroupItem>
       <BListGroupItem>テールランプ点灯</BListGroupItem>
       <BListGroupItem>前ブレーキランプ点灯</BListGroupItem>
       <BListGroupItem>後ブレーキランプ点灯</BListGroupItem>

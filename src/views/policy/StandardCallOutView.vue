@@ -21,6 +21,12 @@ import { RouterLink } from 'vue-router'
         後ろよし
       </BAccordionItem>
 
+      <BAccordionItem title="路上からのUターン発進時">
+        （右バックミラーを見て） ミラーよし<br />
+        後ろよし<br />
+        対向よし
+      </BAccordionItem>
+
       <BAccordionItem title="信号待ちからの発進時">
         （左バックミラーを見て）ミラーよし<br />
         （右バックミラーを見て）ミラーよし<br />
@@ -97,7 +103,8 @@ import { RouterLink } from 'vue-router'
       </BAccordionItem>
 
       <BAccordionItem title="車線変更するとき">
-        （まず、アクセルをニュートラルにする）<br />
+        前よし<br />
+        （アクセルをニュートラルにする）<br />
         <br />
         （バックミラーを見て）ミラーよし<br />
         後ろよし
@@ -143,6 +150,7 @@ import { RouterLink } from 'vue-router'
       </BAccordionItem>
 
       <BAccordionItem title="右への合流">
+        前よし<br />
         （右バックミラーを見て）ミラーよし<br />
         後ろよし
       </BAccordionItem>
