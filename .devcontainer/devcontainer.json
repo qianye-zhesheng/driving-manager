@@ -1,0 +1,22 @@
+{
+  "name": "Driving Manager Dev",
+  "dockerComposeFile": ["../compose.yml"],
+  "service": "dev",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Vue.volar",
+        "vitest.explorer",
+        "dbaeumer.vscode-eslint",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "forwardPorts": [5173, 4173],
+  "postCreateCommand": "npm install",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": { "ppa": true }
+  }
+}
