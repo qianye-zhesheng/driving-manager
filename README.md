@@ -1,55 +1,53 @@
 # driving-manager
 
-This template should help get you started developing with Vue 3 in Vite.
+## 概要
 
-## Recommended IDE Setup
+個人配達業のために、運行前の安全セルフチェックや、運行開始・終了のメーター値が記録できるWebアプリのフロントエンド。  
+Vue.jsを使って実装している。
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 環境構築
 
-## Type Support for `.vue` Imports in TS
+### 必要なもの
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Visual Studio Code
+- Docker Engine
+- Docker Compose
+- Dev Containers
 
-## Customize configuration
+### ソースの準備
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```bash
+git clone git@github.com:qianye-zhesheng/driving-manager.git
 ```
 
-```sh
+### Dev Containersで環境を作成
+
+Visual Studio Codeでdriving-managerフォルダを開く。  
+Ctrl + Shift + Pでコマンドパレットを開き、`Dev Containers: Open Folder in Container`を実行する
+
+コンテナの生成が終わったら、ターミナル内で以下を実行する。
+
+```bash
 npm run copy-env
 ```
 
-### Compile and Hot-Reload for Development
+`.env.development` というファイルが生成されるので、AWS Cognitoの各情報や、バックエンドのベースURLを記入する。
 
-```sh
-npm run dev
-```
+Ctrl + Shift + Bでビルドタスクを実行する。
 
-### Type-Check, Compile and Minify for Production
+ブラウザで http://localhost:5173/ を開く。
 
-```sh
-npm run build
-```
+AWS Cognitoで開発用アカウントを作ってログインする。
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Dev Containers内でのGitの利用
 
-```sh
-npm run test:unit
-```
+事前にホストOS側で、SSHエージェントに鍵を登録しておく必要がある。  
+Gitの設定などは自動でコンテナに引き継がれる。
 
-### Run Stand-alone Unit Tests
+## 単体テスト
 
-```sh
-npx vitest run
-```
+テストのアイコンがVSCodeの左側に表示されるので、そこから任意のテストを実行する。
 
-### Lint with [ESLint](https://eslint.org/)
+## 本番リリース
 
-```sh
-npm run lint
-```
+mainブランチにマージしてプッシュすれば、Amplifyが自動でデプロイしてくれる。
