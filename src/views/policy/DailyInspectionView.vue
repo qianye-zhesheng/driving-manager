@@ -20,7 +20,7 @@ import { RouterLink } from 'vue-router'
       <BListGroupItem>前ブレーキランプ点灯</BListGroupItem>
       <BListGroupItem>後ブレーキランプ点灯</BListGroupItem>
       <BListGroupItem>エンジン停止</BListGroupItem>
-      <BListGroupItem>エンジンオイル</BListGroupItem>
+      <BListGroupItem>エンジンオイル（雨天時は省略可）</BListGroupItem>
     </BListGroup>
   </section>
   <p><RouterLink class="btn btn-primary" :to="{ name: 'policy.index' }">戻る</RouterLink></p>

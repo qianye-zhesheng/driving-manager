@@ -3,13 +3,16 @@ import PageTitle from '@/components/PageTitle.vue'
 import { RouterLink } from 'vue-router'
 </script>
 <template>
-  <PageTitle title="給油時点検" />
+  <PageTitle title="半月毎点検" />
+  <section>
+    <h2 class="mb-3">実施時期</h2>
+    <p>毎月15日に実施</p>
+  </section>
   <section>
     <h2 class="mb-3">点検項目</h2>
     <BListGroup class="mb-3">
-      <BListGroupItem>タイヤ空気圧調整</BListGroupItem>
+      <BListGroupItem>ヘルメットのシールドのコーティング</BListGroupItem>
     </BListGroup>
-    <p>【注】規定の空気圧+30kPaを入れる。（バルブアタッチメントの着脱時に空気が漏れるため）</p>
   </section>
   <p><RouterLink class="btn btn-primary" :to="{ name: 'policy.index' }">戻る</RouterLink></p>
 </template>

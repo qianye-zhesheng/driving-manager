@@ -14,6 +14,7 @@ import { RouterLink } from 'vue-router'
       <BListGroupItem>チェーンのたるみ</BListGroupItem>
       <BListGroupItem>チェーンの給油</BListGroupItem>
       <BListGroupItem>各部のネジ締め</BListGroupItem>
+      <BListGroupItem>ヘルメットのシールドのコーティング</BListGroupItem>
     </BListGroup>
   </section>
   <p><RouterLink class="btn btn-primary" :to="{ name: 'policy.index' }">戻る</RouterLink></p>

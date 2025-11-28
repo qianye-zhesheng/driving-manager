@@ -8,8 +8,10 @@ import PageTitle from '@/components/PageTitle.vue'
     <BListGroup class="mb-3">
       <BListGroupItem :to="{ name: 'policy.daily-inspection' }">運行前点検</BListGroupItem>
       <BListGroupItem :to="{ name: 'policy.refueling-inspection' }">給油時点検</BListGroupItem>
+      <BListGroupItem :to="{ name: 'policy.semimonthly-inspection' }">半月毎点検</BListGroupItem>
       <BListGroupItem :to="{ name: 'policy.monthly-inspection' }">月次点検</BListGroupItem>
       <BListGroupItem :to="{ name: 'policy.annual-inspection' }">年次点検</BListGroupItem>
+      <BListGroupItem :to="{ name: 'policy.oil-change' }">エンジンオイル交換</BListGroupItem>
     </BListGroup>
   </section>
   <section>
