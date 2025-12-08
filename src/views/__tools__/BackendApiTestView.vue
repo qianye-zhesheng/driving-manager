@@ -2,6 +2,7 @@
 import SmartSubmitForm from '@/components/form/smart-submit-form.vue'
 import PageTitle from '@/components/PageTitle.vue'
 import { DeployMode } from '@/config/deploy-mode'
+import { GetApi } from '@/logic/api/get-api'
 import { PostApi } from '@/logic/api/post-api'
 import { PutApi } from '@/logic/api/put-api'
 import { reactive } from 'vue'
@@ -29,11 +30,26 @@ const result = reactive<Result>({
   body: '',
 })
 
-const methods = ['POST', 'PUT']
+const methods = ['GET', 'POST', 'PUT']
 
 const onSubmit = async (): Promise<void> => {
   result.status = 0
   result.body = ''
+
+  if (form.method === 'GET') {
+    try {
+      const response = await GetApi.configure()
+        .setPath(form.endpoint as string)
+        .setParameters(JSON.parse(form.body as string))
+        .build()
+        .send()
+      result.body = response.getBody() as string
+      result.status = response.getStatusCode()
+    } catch (error) {
+      result.body = (error as Error).message
+    }
+    return
+  }
 
   if (form.method === 'POST') {
     try {
