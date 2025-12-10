@@ -20,14 +20,14 @@ import { RouterLink } from 'vue-router'
     <h3 class="mb-2">事故発生時の緊急対応</h3>
 
     <BAccordion free class="mb-3">
-      <BAccordionItem title="1. けが人の救護">
+      <BAccordionItem title="1. 二次災害の防止">バイクを安全な場所に移動する</BAccordionItem>
+
+      <BAccordionItem title="2. けが人の救護">
         <a href="https://www.med.or.jp/99/cpr.html" target="_blank" rel="noopener noreferrer"
           >心肺蘇生法</a
         ><br />
         必要であれば119番通報
       </BAccordionItem>
-
-      <BAccordionItem title="2. 二次災害の防止">バイクを安全な場所に移動する</BAccordionItem>
 
       <BAccordionItem title="3. 警察に連絡">110番通報</BAccordionItem>
 
