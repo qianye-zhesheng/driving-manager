@@ -5,8 +5,12 @@ import { DeployMode } from '@/config/deploy-mode'
 import { GetApi } from '@/logic/api/get-api'
 import { PostApi } from '@/logic/api/post-api'
 import { PutApi } from '@/logic/api/put-api'
-import { reactive } from 'vue'
+import { computed, reactive } from 'vue'
 const isDevelopment = DeployMode.isDevelopment()
+
+const bodyRequired = computed(() => {
+  return form.method !== 'GET'
+})
 
 interface InputForm {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE'
@@ -37,10 +41,11 @@ const onSubmit = async (): Promise<void> => {
   result.body = ''
 
   if (form.method === 'GET') {
+    const parameters = form.body ? JSON.parse(form.body) : {}
     try {
       const response = await GetApi.configure()
         .setPath(form.endpoint as string)
-        .setParameters(JSON.parse(form.body as string))
+        .setParameters(parameters)
         .build()
         .send()
       result.body = response.getBody() as string
@@ -106,7 +111,7 @@ const onSubmit = async (): Promise<void> => {
           placeholder='例: {"key": "value"}'
           rows="6"
           class="ms-3"
-          required
+          :required="bodyRequired"
         ></BFormTextarea>
       </BFormGroup>
       <BButton type="submit" variant="primary" class="mb-4" :disabled="submitting">送信</BButton>
