@@ -45,6 +45,7 @@ describe('ApiResponseのテスト', () => {
   test('200のレスポンスでは、エラー種類判定メソッドがすべてfalseを返すこと', () => {
     const response = new ApiResponse(200, true, mockSuccessfulBody)
     expect(response.isFormatError()).toBe(false)
+    expect(response.isAuthenticationError()).toBe(false)
     expect(response.isIrregularDataError()).toBe(false)
     expect(response.isServerError()).toBe(false)
     expect(response.isDefinedError()).toBe(false)
@@ -53,6 +54,15 @@ describe('ApiResponseのテスト', () => {
   test('400のレスポンスでは、isFormatErrorとisDefinedErrorがtrueを返すこと', () => {
     const response = new ApiResponse(400, false, mockDefinedErrorBody)
     expect(response.isFormatError()).toBe(true)
+    expect(response.isIrregularDataError()).toBe(false)
+    expect(response.isServerError()).toBe(false)
+    expect(response.isDefinedError()).toBe(true)
+  })
+
+  test('401のレスポンスでは、isAuthenticationErrorとisDefinedErrorがtrueを返すこと', () => {
+    const response = new ApiResponse(401, false, mockDefinedErrorBody)
+    expect(response.isFormatError()).toBe(false)
+    expect(response.isAuthenticationError()).toBe(true)
     expect(response.isIrregularDataError()).toBe(false)
     expect(response.isServerError()).toBe(false)
     expect(response.isDefinedError()).toBe(true)

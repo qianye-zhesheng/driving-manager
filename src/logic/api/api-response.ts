@@ -30,6 +30,10 @@ export class ApiResponse {
     return this.statusCode === 400
   }
 
+  public isAuthenticationError(): boolean {
+    return this.statusCode === 401
+  }
+
   public isIrregularDataError(): boolean {
     return this.statusCode === 409
   }
@@ -39,7 +43,12 @@ export class ApiResponse {
   }
 
   public isDefinedError(): boolean {
-    return this.isFormatError() || this.isIrregularDataError() || this.isServerError()
+    return (
+      this.isFormatError() ||
+      this.isAuthenticationError() ||
+      this.isIrregularDataError() ||
+      this.isServerError()
+    )
   }
 
   public getErrorMessage(): string {
