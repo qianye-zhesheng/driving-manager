@@ -41,7 +41,7 @@ const onSubmit = async (): Promise<void> => {
         :required="dateRequired"
       />
     </BFormGroup>
-    <BFormGroup label="開始メーター値" class="mb-4"
+    <BFormGroup label="終了メーター値" class="mb-4"
       ><BFormInput
         v-model.number="form.odometer"
         type="number"
