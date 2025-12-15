@@ -69,6 +69,12 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/session/monthly-records',
+    name: 'session.monthly-records',
+    component: () => import('@/views/session/MonthlyRecordsView.vue'),
+  },
+
+  {
     path: '/policy/index',
     name: 'policy.index',
     component: () => import('@/views/policy/IndexView.vue'),

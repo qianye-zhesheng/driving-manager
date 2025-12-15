@@ -23,6 +23,7 @@ declare module 'vue' {
     BListGroup: typeof import('bootstrap-vue-next/components/BListGroup')['BListGroup']
     BListGroupItem: typeof import('bootstrap-vue-next/components/BListGroup')['BListGroupItem']
     BSpinner: typeof import('bootstrap-vue-next/components/BSpinner')['BSpinner']
+    BTable: typeof import('bootstrap-vue-next/components/BTable')['BTable']
     ErrorMessage: typeof import('./src/components/ErrorMessage.vue')['default']
     HeaderBar: typeof import('./src/components/HeaderBar.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
@@ -35,5 +36,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SmartSubmitForm: typeof import('./src/components/form/smart-submit-form.vue')['default']
+    YearMonthSelector: typeof import('./src/components/form/YearMonthSelector.vue')['default']
   }
 }

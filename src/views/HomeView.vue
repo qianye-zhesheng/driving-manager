@@ -20,6 +20,11 @@ import { RouterLink } from 'vue-router'
       ></BListGroupItem
     >
     <BListGroupItem
+      ><RouterLink class="btn btn-outline-primary" :to="{ name: 'session.monthly-records' }"
+        >月間距離一覧</RouterLink
+      ></BListGroupItem
+    >
+    <BListGroupItem
       ><RouterLink class="btn btn-outline-primary" :to="{ name: 'policy.index' }"
         >規程集</RouterLink
       ></BListGroupItem
