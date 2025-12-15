@@ -20,13 +20,15 @@ const month = computed<number>({
 
 const END_YEAR = new Date().getFullYear() + 1
 
-const yearOptions = []
+type Option = { value: number; text: string }
+
+const yearOptions: Option[] = []
 
 for (let y = START_YEAR; y <= END_YEAR; y++) {
   yearOptions.push({ value: y, text: `${y}年` })
 }
 
-const monthOptions = []
+const monthOptions: Option[] = []
 
 for (let m = 1; m <= 12; m++) {
   monthOptions.push({ value: m, text: `${m}月` })
