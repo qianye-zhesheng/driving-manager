@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import DashboardPanel from '@/components/dashboard/DashboardPanel.vue'
 import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <BListGroup class="container mt-3">
+  <BListGroup class="container my-3">
     <BListGroupItem
       ><RouterLink class="btn btn-outline-primary" :to="{ name: 'check.check-start' }"
         >運行前チェック</RouterLink
@@ -30,4 +31,5 @@ import { RouterLink } from 'vue-router'
       ></BListGroupItem
     >
   </BListGroup>
+  <DashboardPanel />
 </template>

@@ -24,6 +24,7 @@ declare module 'vue' {
     BListGroupItem: typeof import('bootstrap-vue-next/components/BListGroup')['BListGroupItem']
     BSpinner: typeof import('bootstrap-vue-next/components/BSpinner')['BSpinner']
     BTable: typeof import('bootstrap-vue-next/components/BTable')['BTable']
+    DashboardPanel: typeof import('./src/components/dashboard/DashboardPanel.vue')['default']
     ErrorMessage: typeof import('./src/components/ErrorMessage.vue')['default']
     HeaderBar: typeof import('./src/components/HeaderBar.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
