@@ -1,7 +1,6 @@
 import type { ImSafeAnswer, WeatherAnswer } from '@/stores/models/check-answer'
 import { PostApi } from '@/logic/api/post-api'
 import { ApiResponse } from '@/logic/api/api-response'
-import { useUserStore } from '@/stores/user'
 
 export class PostAnswerApi {
   private static readonly PATH: string = 'check/post-answer'
@@ -13,10 +12,7 @@ export class PostAnswerApi {
   ) {}
 
   public async post(): Promise<void> {
-    const userStore = useUserStore()
-    const userId = await userStore.fetchUserId()
     const JSONBody = {
-      userId: userId,
       imSafeAnswer: this.imSafeAnswer,
       weatherAnswer: this.weatherAnswer,
       judgement: this.judgement,
