@@ -68,6 +68,22 @@ describe('PutStartApiのテスト', () => {
     expect(mockErrorStore).toHaveBeenCalledTimes(0)
   })
 
+  test('400が返ってきたら例外を投げること', async () => {
+    const mockSend = vi
+      .spyOn(PutApi.prototype, 'send')
+      .mockResolvedValue(new ApiResponse(400, false, { message: 'Invalid Params' }))
+
+    const api = new PutStartApi(inputForm)
+
+    await expect(api.put()).rejects.toThrow('API error: Invalid Params')
+    expect(mockSend).toHaveBeenCalledTimes(1)
+
+    expect(mockGetFormattedDate).toHaveBeenCalledTimes(1)
+    expect(mockGetOdometer).toHaveBeenCalledTimes(1)
+
+    expect(mockErrorStore).toHaveBeenCalledTimes(0)
+  })
+
   test('401が返ってきたら例外を投げること', async () => {
     const mockSend = vi
       .spyOn(PutApi.prototype, 'send')
