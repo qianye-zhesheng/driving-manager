@@ -20,8 +20,8 @@ const currentInfo: CurrentInfo = {
 }
 
 describe('GetCurrentInfoApi', () => {
-  let mockStartLoading
-  let mockFinishLoading
+  let mockStartLoading: unknown
+  let mockFinishLoading: unknown
 
   beforeEach(() => {
     vi.restoreAllMocks()
