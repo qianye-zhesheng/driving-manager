@@ -1,4 +1,3 @@
-import { useUserStore } from '@/stores/user'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { PutApi } from '@/logic/api/put-api'
@@ -19,11 +18,7 @@ export class PutStartApi {
   }
 
   public async put(): Promise<boolean> {
-    const userStore = useUserStore()
-    const userId = await userStore.fetchUserId()
-
     const JSONBody = {
-      userId: userId,
       date: this.apiParams.getFormattedDate(),
       odometer: this.apiParams.getOdometer(),
     }
