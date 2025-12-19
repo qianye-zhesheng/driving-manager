@@ -1,5 +1,5 @@
+import { Authenticator } from '@/logic/auth/authenticator'
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-import { useUserStore } from '@/stores/user'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -159,11 +159,10 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const userStore = useUserStore()
   if (to.name === 'login') {
     return next()
   }
-  if (await userStore.isAuthenticated()) {
+  if (await Authenticator.isAuthenticated()) {
     return next()
   } else {
     return next({ name: 'login' })

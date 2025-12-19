@@ -1,6 +1,6 @@
 import { ApiResponse } from '@/logic/api/api-response'
-import { useUserStore } from '@/stores/user'
 import { PostApiBuilder } from '@/logic/api/post-api-builder'
+import { Authenticator } from '@/logic/auth/authenticator'
 
 export class PostApi {
   public constructor(
@@ -14,8 +14,7 @@ export class PostApi {
   }
 
   public async send(): Promise<ApiResponse> {
-    const userStore = useUserStore()
-    const idToken: string = await userStore.fetchIdToken()
+    const idToken: string = await Authenticator.fetchIdToken()
 
     const response = await fetch(`${this.baseUrl}${this.path}`, {
       method: 'POST',

@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useUserStore } from '@/stores/user'
 import { signInWithRedirect } from 'aws-amplify/auth'
 import PageTitle from '@/components/PageTitle.vue'
+import { Authenticator } from '@/logic/auth/authenticator'
 
-const userStore = useUserStore()
 const isAuthenticated = ref(false)
 
 onMounted(async () => {
-  isAuthenticated.value = await userStore.isAuthenticated()
+  isAuthenticated.value = await Authenticator.isAuthenticated()
 })
 
 async function signIn() {

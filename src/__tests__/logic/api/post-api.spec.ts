@@ -1,6 +1,6 @@
 import { describe, vi, beforeEach, afterEach, test, expect } from 'vitest'
-import { useUserStore } from '../../../stores/user'
 import { PostApi } from '../../../logic/api/post-api'
+import { Authenticator } from '../../../logic/auth/authenticator'
 
 describe('PostApiのテスト', () => {
   const baseUrl = 'https://api.example.com/'
@@ -19,6 +19,8 @@ describe('PostApiのテスト', () => {
 
   const responseBody = { data: 'mocked data' }
 
+  let mockAuthenticator: unknown
+
   beforeEach(() => {
     vi.spyOn(global, 'fetch').mockResolvedValue({
       status: 200,
@@ -26,16 +28,7 @@ describe('PostApiのテスト', () => {
       json: async () => responseBody,
     } as Response)
 
-    vi.mock('../../../stores/user', () => {
-      const fetchIdTokenMock = vi.fn().mockResolvedValue('mocked-id-token')
-
-      const useUserStoreMock = vi.fn(() => {
-        return { fetchIdToken: fetchIdTokenMock }
-      })
-      return {
-        useUserStore: useUserStoreMock,
-      }
-    })
+    mockAuthenticator = vi.spyOn(Authenticator, 'fetchIdToken').mockResolvedValue('mocked-id-token')
   })
 
   afterEach(() => {
@@ -43,10 +36,9 @@ describe('PostApiのテスト', () => {
   })
 
   test('正しくモック化できているかのテスト', async () => {
-    const userStore = useUserStore()
-    const idToken: string = await userStore.fetchIdToken()
+    const idToken: string = await Authenticator.fetchIdToken()
     expect(idToken).toBe('mocked-id-token')
-    expect(userStore.fetchIdToken).toHaveBeenCalledTimes(1)
+    expect(mockAuthenticator).toHaveBeenCalledTimes(1)
 
     const response = await fetch(apiUrl, request)
     expect(response.status).toBe(200)
@@ -62,7 +54,7 @@ describe('PostApiのテスト', () => {
     expect(response.statusCode).toBe(200)
     expect(response.successful).toBe(true)
     expect(response.body).toEqual(responseBody)
-    expect(useUserStore).toHaveBeenCalledTimes(1)
+    expect(mockAuthenticator).toHaveBeenCalledTimes(1)
     expect(fetch).toHaveBeenCalledTimes(1)
   })
 })

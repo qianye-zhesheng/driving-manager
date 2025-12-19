@@ -1,20 +1,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useUserStore } from '@/stores/user'
 import { signOut } from 'aws-amplify/auth'
 import { DeployMode } from '@/config/deploy-mode'
+import { Authenticator } from '@/logic/auth/authenticator'
 
-const userStore = useUserStore()
 const isAuthenticated = ref(false)
 
 const isDevelopmentMode: boolean = DeployMode.isDevelopment()
 
 onMounted(async () => {
-  isAuthenticated.value = await userStore.isAuthenticated()
+  isAuthenticated.value = await Authenticator.isAuthenticated()
 })
 
 async function onSignOut() {
-  userStore.clearUser()
   await signOut()
 }
 </script>
