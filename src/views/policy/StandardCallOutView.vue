@@ -154,6 +154,13 @@ import { RouterLink } from 'vue-router'
         （右バックミラーを見て）ミラーよし<br />
         後ろよし
       </BAccordionItem>
+
+      <BAccordionItem title="沿道の施設に入るとき">
+        （左バックミラーを見て）ミラーよし<br />
+        後ろよし<br />
+        （歩道を見て）右よし<br />
+        左よし<br />
+      </BAccordionItem>
     </BAccordion>
   </section>
   <p><RouterLink class="btn btn-primary" :to="{ name: 'policy.index' }">戻る</RouterLink></p>

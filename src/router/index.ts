@@ -87,18 +87,6 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
-    path: '/policy/refueling-inspection',
-    name: 'policy.refueling-inspection',
-    component: () => import('@/views/policy/RefuelingInspectionView.vue'),
-  },
-
-  {
-    path: '/policy/semimonthly-inspection',
-    name: 'policy.semimonthly-inspection',
-    component: () => import('@/views/policy/SemimonthlyInspectionView.vue'),
-  },
-
-  {
     path: '/policy/monthly-inspection',
     name: 'policy.monthly-inspection',
     component: () => import('@/views/policy/MonthlyInspectionView.vue'),

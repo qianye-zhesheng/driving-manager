@@ -10,9 +10,7 @@ import { RouterLink } from 'vue-router'
   </section>
   <section>
     <h2 class="mb-3">内容</h2>
-    <p>
-      消防署等で行われる普通救命講習Ⅰ（成人向け心肺蘇生法）とⅢ（小児向け心肺蘇生法）を交互に受講する。
-    </p>
+    <p>消防署等で行われる普通救命講習Ⅰ（成人向け心肺蘇生法）を受講する。</p>
   </section>
 
   <p><RouterLink class="btn btn-primary" :to="{ name: 'policy.index' }">戻る</RouterLink></p>

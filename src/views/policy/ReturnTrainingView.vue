@@ -7,6 +7,7 @@ import { RouterLink } from 'vue-router'
   <section>
     <h2 class="mb-3">実施時期</h2>
     <p>1ヶ月以上運行を休んだとき、復帰前に実施</p>
+    <p>ただし、直近1ヶ月以内に5日以上の運転経験がある場合は、運行手順訓練を省略できる。</p>
   </section>
   <section>
     <h2 class="mb-3">運行手順訓練</h2>
